@@ -17,6 +17,7 @@ extension DictionaryDataProvider :DictioanryDataProviderProtocol {
             indexPath.row >= 0 &&
             indexPath.row < items[self.keyAt(section: indexPath.section)]!.count else
         {
+            print("DictionaryDataProvider updateItem:- indexpath not found")
             return false
         }
         var arrayAtIndex = items[self.keyAt(section: indexPath.section)]!
@@ -28,7 +29,8 @@ extension DictionaryDataProvider :DictioanryDataProviderProtocol {
     func updateItem(atfor key: U, value: T, atRow row: Int) -> IndexPath? {
         var updatedIndex:IndexPath?
         var arrayForKey = items[key]
-        guard arrayForKey != nil && (arrayForKey?.count)! > row else {
+        guard arrayForKey != nil && row < (arrayForKey?.count)!  else {
+            print("DictionaryDataProvider updateItem:- indexpath not found")
             return nil
         }
         arrayForKey![row] = value
@@ -43,7 +45,8 @@ extension DictionaryDataProvider :DictioanryDataProviderProtocol {
     func insertItem(atfor key: U, value: T, atRow row: Int = 0) -> IndexPath? {
         var insertIndex:IndexPath?
         var arrayForKey = items[key]
-        guard arrayForKey != nil && (arrayForKey?.count)! >= row else {
+        guard arrayForKey != nil &&  row <= (arrayForKey?.count)! else {
+            print("DictionaryDataProvider insertItem:- array not found or insertion beyond the array range")
             return nil
         }
         arrayForKey!.insert(value, at: row)
@@ -59,7 +62,8 @@ extension DictionaryDataProvider :DictioanryDataProviderProtocol {
     func deleteItem(atfor key: U, atRow row: Int) -> IndexPath? {
         var deleteIndex:IndexPath?
         var arrayForKey = items[key]
-        guard arrayForKey != nil && (arrayForKey?.count)! > row else {
+        guard arrayForKey != nil && row < (arrayForKey?.count)!  else {
+            print("DictionaryDataProvider deleteItem:- array not found or deletion beyond the array range")
             return nil
         }
         arrayForKey!.remove(at: row)
@@ -74,6 +78,7 @@ extension DictionaryDataProvider :DictioanryDataProviderProtocol {
         var deleteIndex:IndexPath?
         var arrayAtKey = items[key]
         guard (arrayAtKey != nil) && arrayAtKey!.count > 0 else {
+            print("DictionaryDataProvider deleteItem:- section for key not found")
             return nil
         }
         
@@ -85,7 +90,7 @@ extension DictionaryDataProvider :DictioanryDataProviderProtocol {
             deleteIndex = IndexPath(row: rowOfValue, section: sectionInfo!)
             return deleteIndex
         }
-        
+        print("DictionaryDataProvider deleteItem:- value doesnt exit")
         return deleteIndex
     }
 

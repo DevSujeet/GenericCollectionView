@@ -42,7 +42,7 @@ class DictionaryViewController: UIViewController,actionAbleCellDelegate {
     }
     
     @IBAction func insertAtEndAction(_ sender: UIButton) {
-        
+        dicDataSource?.insertItem(atfor: "career", value: "actor1",atRow: 4)
     }
     
     @IBAction func insertAction(_ sender: UIButton) {
@@ -50,7 +50,7 @@ class DictionaryViewController: UIViewController,actionAbleCellDelegate {
     }
     
     @IBAction func deleteAction(_ sender: UIButton) {
-        dicDataSource?.deleteItem(whereKey: "career", value: "actor")
+        dicDataSource?.deleteItem(whereKey: "career", value: "actor1")
     }
     
     @IBAction func updateAction(_ sender: UIButton) {
