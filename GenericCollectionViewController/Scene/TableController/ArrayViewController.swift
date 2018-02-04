@@ -38,7 +38,7 @@ class ViewController: UIViewController,actionAbleCellDelegate {
 
         //similarly other block can be defined for action in cell like edit on cell
         arrayDataSource?.tableItemSelectionHandler = { index in
-            print("cell selected")
+            print("cell selected at index = \(index)")
         }
         //this functionality was added on top of the basic generic collection type view generation and cell selection
         // this enables to take action on event like button action inside the cell.

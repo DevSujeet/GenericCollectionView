@@ -10,7 +10,7 @@ import UIKit
 
 class OptionTableViewController: UITableViewController {
 
-    let option = ["Array Controller","Dictionary Controller"]
+    let option = ["Array TableController","Dictionary TableController","Array CollectionController"]
     override func viewDidLoad() {
         
         print("OptionTableViewController view did load")
@@ -61,6 +61,11 @@ class OptionTableViewController: UITableViewController {
             //push Dictionary controller
             let dicViewController = self.storyboard?.instantiateViewController(withIdentifier: "DictViewController") as! DictionaryViewController
             self.navigationController?.pushViewController(dicViewController, animated: true)
+        }
+        if indexPath.row == 2 {
+            //push Dictionary controller
+            let arrayCollectionViewController = self.storyboard?.instantiateViewController(withIdentifier: "ArrayCollectionViewController") as! ArrayCollectionViewController
+            self.navigationController?.pushViewController(arrayCollectionViewController, animated: true)
         }
     }
 }

@@ -23,13 +23,13 @@
 		BA0899391FD704C600722858 /* TableDictionaryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0899371FD704C600722858 /* TableDictionaryDataSource.swift */; };
 		BA08993E1FD7094300722858 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA08993C1FD7094300722858 /* TestTableViewCell.swift */; };
 		BA08993F1FD7094300722858 /* TestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA08993D1FD7094300722858 /* TestTableViewCell.xib */; };
-		BA0899431FD7C7A700722858 /* TestCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0899421FD7C7A700722858 /* TestCollectionViewController.swift */; };
 		BA0899471FD7C7D600722858 /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0899451FD7C7D600722858 /* TestCollectionViewCell.swift */; };
 		BA0899481FD7C7D600722858 /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA0899461FD7C7D600722858 /* TestCollectionViewCell.xib */; };
 		BA847EA620257D4E0096B2B5 /* DictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA847EA520257D4E0096B2B5 /* DictionaryViewController.swift */; };
 		BA847EA82025834B0096B2B5 /* OptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA847EA72025834B0096B2B5 /* OptionTableViewController.swift */; };
 		BA847EAB20258E940096B2B5 /* OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA847EA920258E940096B2B5 /* OptionTableViewCell.swift */; };
 		BA847EAC20258E940096B2B5 /* OptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA847EAA20258E940096B2B5 /* OptionTableViewCell.xib */; };
+		BA847EAE202701630096B2B5 /* ArrayCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA847EAD202701630096B2B5 /* ArrayCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,13 +63,13 @@
 		BA0899371FD704C600722858 /* TableDictionaryDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDictionaryDataSource.swift; sourceTree = "<group>"; };
 		BA08993C1FD7094300722858 /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
 		BA08993D1FD7094300722858 /* TestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestTableViewCell.xib; sourceTree = "<group>"; };
-		BA0899421FD7C7A700722858 /* TestCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewController.swift; sourceTree = "<group>"; };
 		BA0899451FD7C7D600722858 /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
 		BA0899461FD7C7D600722858 /* TestCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCollectionViewCell.xib; sourceTree = "<group>"; };
 		BA847EA520257D4E0096B2B5 /* DictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewController.swift; sourceTree = "<group>"; };
 		BA847EA72025834B0096B2B5 /* OptionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewController.swift; sourceTree = "<group>"; };
 		BA847EA920258E940096B2B5 /* OptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewCell.swift; sourceTree = "<group>"; };
 		BA847EAA20258E940096B2B5 /* OptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionTableViewCell.xib; sourceTree = "<group>"; };
+		BA847EAD202701630096B2B5 /* ArrayCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,7 +236,7 @@
 		BA0899411FD7C77300722858 /* CollectionController */ = {
 			isa = PBXGroup;
 			children = (
-				BA0899421FD7C7A700722858 /* TestCollectionViewController.swift */,
+				BA847EAD202701630096B2B5 /* ArrayCollectionViewController.swift */,
 				BA0899441FD7C7B900722858 /* CollectionCell */,
 			);
 			path = CollectionController;
@@ -362,10 +362,10 @@
 				BA0899291FD703B300722858 /* ArrayDataProvider.swift in Sources */,
 				BA0899311FD704AA00722858 /* CollectionDataSource.swift in Sources */,
 				BA0899351FD704B900722858 /* TableDataSource.swift in Sources */,
-				BA0899431FD7C7A700722858 /* TestCollectionViewController.swift in Sources */,
 				BA0899041FD7027B00722858 /* ArrayViewController.swift in Sources */,
 				BA0899391FD704C600722858 /* TableDictionaryDataSource.swift in Sources */,
 				BA0899381FD704C600722858 /* TableArrayDataSource.swift in Sources */,
+				BA847EAE202701630096B2B5 /* ArrayCollectionViewController.swift in Sources */,
 				BA0899331FD704B100722858 /* CollectionArrayDataSource.swift in Sources */,
 				BA0899281FD703B300722858 /* DictionaryDataProvider.swift in Sources */,
 				BA847EA82025834B0096B2B5 /* OptionTableViewController.swift in Sources */,

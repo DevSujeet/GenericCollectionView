@@ -26,7 +26,33 @@ open class CollectionArrayDataSource<T, Cell: UICollectionViewCell>: CollectionD
     }
     
     public func updateItem(at indexPath: IndexPath, value: T) {
-        provider.updateItem(at: indexPath, value: value)
+        if provider.updateItem(at: indexPath, value: value) {
+            //once data is update..start relod animation
+//            self.tableView.beginUpdates()
+//            tableView.reloadRows(at: [indexPath], with: .automatic)
+//            self.tableView.endUpdates()
+        }
+        
+    }
+    
+    public func insertItem(atIndex index: IndexPath, value: T) {
+        if provider.insertItem(atIndex: index, value: value) {
+            //once data is update..start relod animation
+//            self.tableView.beginUpdates()
+//            tableView.insertRows(at: [index], with: .automatic)
+//            self.tableView.endUpdates()
+        }
+        
+    }
+    
+    public func deleteItem(atIndex index: IndexPath) {
+        if provider.deleteItem(atIndex: index) {
+            //once data is update..start relod animation
+//            self.tableView.beginUpdates()
+//            tableView.deleteRows(at: [index], with: .automatic)
+//            self.tableView.endUpdates()
+        }
     }
 
+    
 }

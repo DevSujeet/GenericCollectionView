@@ -74,13 +74,11 @@ UITableViewDelegate where Cell:ConfigurableCell, Provider.T == Cell.T {
     // Default is 1 if not implemented
     func numberOfSections(in tableView: UITableView) -> Int{
         let sectionCount =  provider.numberOfSections()
-        print("sectionCount = \(sectionCount) in generic table")
         return sectionCount
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         let numberOfRows = provider.numberOfItems(in: section)
-        print("numberOfRows = \(numberOfRows)")
         return numberOfRows
     }
     
@@ -107,14 +105,9 @@ UITableViewDelegate where Cell:ConfigurableCell, Provider.T == Cell.T {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
-//        return ""
         let headerTitle = provider.titleAtSection(in: section)
-        print("headerTitle = \(headerTitle)")
         return headerTitle
     }
-//    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String?{
-//        return "Header"
-//    }
     
 }
 

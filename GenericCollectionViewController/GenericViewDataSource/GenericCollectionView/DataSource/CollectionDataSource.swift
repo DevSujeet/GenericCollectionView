@@ -31,6 +31,8 @@ UICollectionViewDelegate where Cell:ConfigurableCell,Provider.T == Cell.T {
     func setUp() {
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        collectionView.register(UINib(nibName: Cell.nibForCell, bundle: nil), forCellWithReuseIdentifier: Cell.reuseIdentifierForCell)
     }
     
     // MARK: - UICollectionViewDataSource
@@ -45,17 +47,22 @@ UICollectionViewDelegate where Cell:ConfigurableCell,Provider.T == Cell.T {
     open func collectionView(_ collectionView: UICollectionView,
                              cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.reuseIdentifierForCell,
+        guard var cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.reuseIdentifierForCell,
                                                             for: indexPath) as? Cell else {
                                                                 return UICollectionViewCell()
         }
         let item = provider.item(at: indexPath)
         if let item = item {
             cell.configure(item, at: indexPath)
+            self.modifyOrUpdate(cell: &cell)
         }
         return cell
     }
 
+    //update.. in sub class
+    func modifyOrUpdate(cell:inout Cell) {
+        
+    }
     // MARK: - Delegates
     public var collectionItemSelectionHandler: ItemSelectionHandlerType?
     
