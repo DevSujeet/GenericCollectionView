@@ -109,6 +109,13 @@ UITableViewDelegate where Cell:ConfigurableCell, Provider.T == Cell.T {
         return headerTitle
     }
     
+    //MARK:- Table view update
+    public func dataSourceWillChangeContent(){
+        self.tableView.beginUpdates()
+    }
+    public func dataSourceDidChangeContent(){
+        self.tableView.endUpdates()
+    }
 }
 
 

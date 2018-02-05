@@ -78,5 +78,24 @@ UICollectionViewDelegate where Cell:ConfigurableCell,Provider.T == Cell.T {
         
         return UICollectionReusableView(frame: CGRect.zero)
     }
+    
+    //MARK:- Block Operation for collection view update.
+    var blockOperations: [BlockOperation] = []
+    
+    public func dataSourceWillChangeContent(){
+        
+    }
+    public func dataSourceDidChangeContent(){
+        
+        self.collectionView.performBatchUpdates({
+            
+            for operation: BlockOperation in self.blockOperations {
+                operation.start()
+            }
+        }, completion: { (finished) -> Void in
+            self.blockOperations.removeAll(keepingCapacity: false)
+            
+        })
+    }
 }
 

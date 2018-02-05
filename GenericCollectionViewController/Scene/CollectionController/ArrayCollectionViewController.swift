@@ -73,6 +73,18 @@ class ArrayCollectionDataSource: CollectionArrayDataSource<String, TestCollectio
 
 }
 
+extension ArrayCollectionDataSource : UICollectionViewDelegateFlowLayout {
+    //overirde in subclass to specify the large cell type.
+    func isLargeCellType(at indexPath:IndexPath) -> Bool {
+        let row = indexPath.row
+        if row == 1 || row == 3 || row == 4 {
+            return true
+        }
+        return false
+    }
+}
+
+
 class ArrayCollectionViewController: UIViewController,actionAbleCellDelegate{
     
 
@@ -81,22 +93,22 @@ class ArrayCollectionViewController: UIViewController,actionAbleCellDelegate{
     @IBOutlet weak var collectionView: UICollectionView!
     
     let arrayData = ["AAA","BBB","CCC","DDD","EEE","FFF","GGG"]
-    var arrayColelctionDataSource:ArrayCollectionDataSource?
+    var arrayCollectionDataSource:ArrayCollectionDataSource?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         ////-----------------Array data-------------------------
         // Do any additional setup after loading the view, typically from a nib.
-        arrayColelctionDataSource = ArrayCollectionDataSource(collectionView: self.collectionView, array: arrayData)
+        arrayCollectionDataSource = ArrayCollectionDataSource(collectionView: self.collectionView, array: arrayData)
         
         //similarly other block can be defined for action in cell like edit on cell
-        arrayColelctionDataSource?.collectionItemSelectionHandler = { index in
+        arrayCollectionDataSource?.collectionItemSelectionHandler = { index in
             print("cell selected at index = \(index)")
         }
         //this functionality was added on top of the basic generic collection type view generation and cell selection
         // this enables to take action on event like button action inside the cell.
-        arrayColelctionDataSource?.cellActionDelegate = self
+        arrayCollectionDataSource?.cellActionDelegate = self
         //to handle some action on cell...like button action in cell
         
         //setting the layout of the collection view
@@ -109,6 +121,25 @@ class ArrayCollectionViewController: UIViewController,actionAbleCellDelegate{
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func insertAtEndAction(_ sender: UIButton) {
+        let index = IndexPath(row: arrayData.endIndex, section: 0)
+        self.arrayCollectionDataSource?.insertItem(atIndex: index, value: "InsAtEnd")
+    }
+    
+    @IBAction func insertAction(_ sender: UIButton) {
+        let index = IndexPath(row:2, section: 0)
+        self.arrayCollectionDataSource?.insertItem(atIndex: index, value: "insxxx")
+    }
+    
+    @IBAction func deleteAction(_ sender: UIButton) {
+        let index = IndexPath(row:2, section: 0)
+        self.arrayCollectionDataSource?.deleteItem(atIndex: index)
+    }
+    
+    @IBAction func updateAction(_ sender: UIButton) {
+        let index = IndexPath(row:4, section: 0)
+        self.arrayCollectionDataSource?.updateItem(at: index, value: "updated")
+    }
 
     //MARK:- Cell action handling
     func actionInsideCell(data:String) {
@@ -117,18 +148,4 @@ class ArrayCollectionViewController: UIViewController,actionAbleCellDelegate{
     }
 }
 
-extension ArrayCollectionDataSource : UICollectionViewDelegateFlowLayout {
-    //overirde in subclass to specify the large cell type.
-    func isLargeCellType(at indexPath:IndexPath) -> Bool {
-        let row = indexPath.row
-        if row == 1 || row == 3 || row == 4 {
-            return true
-        }
-        return false
-    }
-    
-    
-    
-    //MARK:- scrolling delegate
-    
-}
+

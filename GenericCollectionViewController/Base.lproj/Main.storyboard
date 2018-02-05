@@ -200,11 +200,51 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0av-CA-UTp">
+                                <rect key="frame" x="8" y="28" width="359" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXb-0z-KKp">
+                                        <rect key="frame" x="0.0" y="0.0" width="82.5" height="30"/>
+                                        <state key="normal" title="Insert"/>
+                                        <connections>
+                                            <action selector="insertAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oEn-vG-jL3"/>
+                                            <action selector="insertAction:" destination="fkq-yj-pwT" eventType="touchUpInside" id="tXa-0M-Ejk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVz-2o-B9J">
+                                        <rect key="frame" x="92.5" y="0.0" width="82" height="30"/>
+                                        <state key="normal" title="insEnd"/>
+                                        <connections>
+                                            <action selector="insertAtEndAction:" destination="fkq-yj-pwT" eventType="touchUpInside" id="qqI-yF-sbR"/>
+                                            <action selector="insertAtEndAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ygR-0p-p3e"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pk9-Mi-pvY">
+                                        <rect key="frame" x="184.5" y="0.0" width="82.5" height="30"/>
+                                        <state key="normal" title="Delete"/>
+                                        <connections>
+                                            <action selector="deleteAction:" destination="fkq-yj-pwT" eventType="touchUpInside" id="9AE-yO-yzh"/>
+                                            <action selector="deleteAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x04-JE-6zJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGw-yE-JhM">
+                                        <rect key="frame" x="277" y="0.0" width="82" height="30"/>
+                                        <state key="normal" title="update"/>
+                                        <connections>
+                                            <action selector="updateAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QaP-4E-iD8"/>
+                                            <action selector="updateAction:" destination="fkq-yj-pwT" eventType="touchUpInside" id="kgk-nX-ZAG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="DzQ-pV-WD6" firstAttribute="trailing" secondItem="0av-CA-UTp" secondAttribute="trailing" constant="8" id="8Gw-8q-4kD"/>
                             <constraint firstItem="V0a-9d-Zaa" firstAttribute="leading" secondItem="DzQ-pV-WD6" secondAttribute="leading" id="CGL-27-uHO"/>
+                            <constraint firstItem="0av-CA-UTp" firstAttribute="leading" secondItem="DzQ-pV-WD6" secondAttribute="leading" constant="8" id="YDR-lM-FUm"/>
                             <constraint firstItem="DzQ-pV-WD6" firstAttribute="bottom" secondItem="V0a-9d-Zaa" secondAttribute="bottom" id="bee-hq-7yz"/>
+                            <constraint firstItem="0av-CA-UTp" firstAttribute="top" secondItem="DzQ-pV-WD6" secondAttribute="top" constant="8" id="e4H-G1-WLq"/>
                             <constraint firstItem="DzQ-pV-WD6" firstAttribute="trailing" secondItem="V0a-9d-Zaa" secondAttribute="trailing" id="kyq-R4-XVc"/>
                             <constraint firstItem="V0a-9d-Zaa" firstAttribute="top" secondItem="DzQ-pV-WD6" secondAttribute="top" constant="87" id="l98-aq-8XO"/>
                         </constraints>

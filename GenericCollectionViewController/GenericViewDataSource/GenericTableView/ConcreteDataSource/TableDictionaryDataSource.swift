@@ -26,45 +26,45 @@ Cell:ConfigurableCell,Cell.T == T , U:CustomStringConvertible & Hashable,T:Compa
     public func updateItem(at indexPath: IndexPath, value: T) {
         if provider.updateItem(at: indexPath, value: value) {
             //once data is update..start relod animation
-            self.tableView.beginUpdates()
+            self.dataSourceWillChangeContent()
             tableView.reloadRows(at: [indexPath], with: .automatic)
-            self.tableView.endUpdates()
+            self.dataSourceDidChangeContent()
         }
     }
     
     public func updateItem(atfor key: U, value: T, atRow row: Int) {
         if let updateIndex = provider.updateItem(atfor: key, value: value, atRow: row) {
             //once data is update..start relod animation
-            self.tableView.beginUpdates()
+            self.dataSourceWillChangeContent()
             tableView.reloadRows(at: [updateIndex], with: .automatic)
-            self.tableView.endUpdates()
+            self.dataSourceDidChangeContent()
         }
     }
     
     public func insertItem(atfor key: U, value: T, atRow row: Int = 0) {
         if let insertedIndex = provider.insertItem(atfor: key, value: value, atRow: row) {
             //once data is update..start relod animation
-            self.tableView.beginUpdates()
+            self.dataSourceWillChangeContent()
             tableView.insertRows(at: [insertedIndex], with: .automatic)
-            self.tableView.endUpdates()
+            self.dataSourceDidChangeContent()
         }
     }
     
     public func deleteItem(atfor key: U, atRow row: Int) {
         if let deletedIndex = provider.deleteItem(atfor: key, atRow: row) {
             //once data is update..start relod animation
-            self.tableView.beginUpdates()
+            self.dataSourceWillChangeContent()
             tableView.deleteRows(at: [deletedIndex], with: .automatic)
-            self.tableView.endUpdates()
+            self.dataSourceDidChangeContent()
         }
     }
     
     public func deleteItem(whereKey key: U, value: T) {
         if let deletedIndex = provider.deleteItem(whereKey: key, value: value) {
             //once data is update..start relod animation
-            self.tableView.beginUpdates()
+            self.dataSourceWillChangeContent()
             tableView.deleteRows(at: [deletedIndex], with: .automatic)
-            self.tableView.endUpdates()
+            self.dataSourceDidChangeContent()
         }
     }
 }

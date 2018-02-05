@@ -28,9 +28,9 @@ class TableArrayDataSource<T,Cell:UITableViewCell>:TableDataSource<ArrayDataProv
     public func updateItem(at indexPath: IndexPath, value: T) {
         if provider.updateItem(at: indexPath, value: value) {
             //once data is update..start relod animation
-            self.tableView.beginUpdates()
+            self.dataSourceWillChangeContent()
             tableView.reloadRows(at: [indexPath], with: .automatic)
-            self.tableView.endUpdates()
+            self.dataSourceDidChangeContent()
         }
         
     }
@@ -38,9 +38,9 @@ class TableArrayDataSource<T,Cell:UITableViewCell>:TableDataSource<ArrayDataProv
     public func insertItem(atIndex index: IndexPath, value: T) {
         if provider.insertItem(atIndex: index, value: value) {
             //once data is update..start relod animation
-            self.tableView.beginUpdates()
+            self.dataSourceWillChangeContent()
             tableView.insertRows(at: [index], with: .automatic)
-            self.tableView.endUpdates()
+            self.dataSourceDidChangeContent()
         }
         
     }
@@ -48,9 +48,9 @@ class TableArrayDataSource<T,Cell:UITableViewCell>:TableDataSource<ArrayDataProv
     public func deleteItem(atIndex index: IndexPath) {
         if provider.deleteItem(atIndex: index) {
             //once data is update..start relod animation
-            self.tableView.beginUpdates()
+            self.dataSourceWillChangeContent()
             tableView.deleteRows(at: [index], with: .automatic)
-            self.tableView.endUpdates()
+            self.dataSourceDidChangeContent()
         }
     }
 }

@@ -25,33 +25,59 @@ open class CollectionArrayDataSource<T, Cell: UICollectionViewCell>: CollectionD
         return provider.item(at: indexPath)
     }
     
+    
+
     public func updateItem(at indexPath: IndexPath, value: T) {
+        
         if provider.updateItem(at: indexPath, value: value) {
-            //once data is update..start relod animation
-//            self.tableView.beginUpdates()
-//            tableView.reloadRows(at: [indexPath], with: .automatic)
-//            self.tableView.endUpdates()
+            self.dataSourceWillChangeContent()
+            blockOperations.append(
+                BlockOperation(block: { [weak self] in
+                    if let this = self {
+                        this.collectionView.reloadItems(at: [indexPath])
+                    }
+                })
+            )
+            
+            self.dataSourceDidChangeContent()
         }
         
     }
     
     public func insertItem(atIndex index: IndexPath, value: T) {
+        
         if provider.insertItem(atIndex: index, value: value) {
-            //once data is update..start relod animation
-//            self.tableView.beginUpdates()
-//            tableView.insertRows(at: [index], with: .automatic)
-//            self.tableView.endUpdates()
+            self.dataSourceWillChangeContent()
+            //-----------------
+            blockOperations.append(
+                BlockOperation(block: { [weak self] in
+                    if let this = self {
+                        this.collectionView.insertItems(at: [index])
+                    }
+                })
+            )
+            //-----------------
+            self.dataSourceDidChangeContent()
         }
         
     }
     
     public func deleteItem(atIndex index: IndexPath) {
+        self.dataSourceWillChangeContent()
         if provider.deleteItem(atIndex: index) {
-            //once data is update..start relod animation
-//            self.tableView.beginUpdates()
-//            tableView.deleteRows(at: [index], with: .automatic)
-//            self.tableView.endUpdates()
+            self.dataSourceWillChangeContent()
+            //-----------------
+            blockOperations.append(
+                BlockOperation(block: { [weak self] in
+                    if let this = self {
+                        this.collectionView.deleteItems(at: [index])
+                    }
+                })
+            )
+            //-----------------
+            self.dataSourceDidChangeContent()
         }
+        self.dataSourceDidChangeContent()
     }
 
     
